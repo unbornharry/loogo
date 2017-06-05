@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <!--meta http-equiv="refresh" content="5"-->
+  <head>
+    <title>Loogo</title>
+	<h4 style="text-align:center;font-size: 40px;">Loogo<h4>
+  </head>
+  <body>
+	<div>
+		<div style="position:absolute; height:50vh; width: 100vw;">
+			<div id="90MainFloor" style="position:absolute; height:50vh; width: 50vw; display:inline-block;">				
+				<img src="/images/Main.JPG" alt="Building 90 Main Floor" style="position:relative; height:50vh; width: 50vw; z-index: -1;">
+				<img src="/images/WC.png" id="90MainNorth" style="position:relative;top:-30vh;left:8%; z-index: 2; height:10vh; width:6vw; background-color:black;">
+				<img src="/images/WC.png" id="90MainSouth" style="position:relative;top:-30vh;left:72%; z-index: 2; height:10vh; width:6vw; background-color:black;">
+				<p style="text-align:center;font-size: 25px;"> Main Floor </p>
+			</div>			
+			<div id="90SecondFloor" style="position:absolute; left:50%; height:50vh; width:50vw; display:inline-block;">				
+				<img src="/images/Second.JPG" alt="Building 90 Second Floor" style="position:relative; height:50vh; width: 50vw; z-index: -1;">
+				<img src="/images/WC.png" id="90SecondNorth" style="position:relative;top:-30vh;left:8%; z-index: 2; height:10vh; width:6vw; background-color:black;">
+				<img src="/images/WC.png" id="90SecondSouth" style="position:relative;top:-30vh;left:72%; z-index: 2; height:10vh; width:6vw; background-color:black;">
+				<p style="text-align:center;font-size: 25px;"> Second Floor </p>
+			</div>			
+		</div>
+	</div>
+  </body>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/loogo.js"></script>
+</html>
