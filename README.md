@@ -8,4 +8,4 @@ https://www.npmjs.com/
 2. Go into the project directory
 3. npm install (Should install all requirements from the package.json file)
 4. npm start
-5. open http://localhost:3000/# on your browser
+5. open http://localhost:4000/# on your browser
