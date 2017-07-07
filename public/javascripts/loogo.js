@@ -1,4 +1,4 @@
-var urlWashroom= "http://35.165.93.222:3000/washrooms";
+var urlWashroom= "http://" + document.location.host + ":4000/washrooms";
 
 $.ajax({
 	url: urlWashroom,
