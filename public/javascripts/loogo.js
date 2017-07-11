@@ -18,7 +18,7 @@ $.ajax({
 	}
 })
 
-var url90SecondNorth= "http://34.210.6.35:5002/washrooms";
+var url90SecondNorth= "http://34.208.93.80:5002/washrooms";
 $.ajax({
 	url: url90SecondNorth,
 	type: 'GET',
@@ -33,7 +33,7 @@ $.ajax({
 						color = "red"
 						break;
 					case "closed for cleaning":
-						color = "yellow"
+						color = "orange"
 						break;
 					case "active":
 						color = "green"
