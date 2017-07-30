@@ -1,4 +1,4 @@
-var urlWashroom= "http://" + document.location.host + "/washrooms";
+var urlWashroom= window.location.href + "washrooms";
 
 $.ajax({
 	url: urlWashroom,
@@ -6,7 +6,7 @@ $.ajax({
 	crossDomain: true,
 	contentType: 'application/x-www-form-urlencoded',
 	success: function (result) {
-		var washroomsArray = result.washrooms
+		var washroomsArray = result.washrooms;
 		if(washroomsArray.length > 0){
 			for(var iter=0; iter < washroomsArray.length; iter++){
 				$('#' + washroomsArray[iter].id).css('background-color', washroomsArray[iter].status);
@@ -16,9 +16,9 @@ $.ajax({
 	error: function (error) {
 		console.log (error);
 	}
-})
+});
 
-var url90SecondNorth= "http://34.208.93.80:5002/washrooms";
+var url90SecondNorth= "http://34.210.6.35:5002/washrooms";
 $.ajax({
 	url: url90SecondNorth,
 	type: 'GET',
@@ -30,16 +30,16 @@ $.ajax({
 				var color = "black";
 				switch(washroomsArray[iter].status) {
 					case "in service":
-						color = "red"
+						color = "red";
 						break;
 					case "closed for cleaning":
-						color = "orange"
+						color = "yellow";
 						break;
 					case "active":
-						color = "green"
+						color = "green";
 						break;
 					default:
-						color = "green"
+						color = "green";
 				}
 				$('#' + washroomsArray[iter].name).css('background-color', color);
 			}
@@ -48,6 +48,4 @@ $.ajax({
 	error: function (error) {
 		console.log (error);
 	}
-})
-
-
+});

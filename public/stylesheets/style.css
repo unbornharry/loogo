@@ -1,1 +1,37 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}#90MainFloor{position:absolute}.90MainFloorPlan{position:relative;left:70px;top:100px}.90MainNorth{position:relative;left:70px;top:100px;color:black;width:100px;height:100px}
+body{
+    background: dimgrey;
+}
+#divplan {
+    position: absolute;
+    height: 70vh;
+    width: 90vw;
+    left: 5vw;
+    display: inline-block;
+}
+#plan{
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+}
+h3{
+    text-align: center;
+}
+.restroom{
+    height: 10vh;
+    width: 10vw;
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+.north{
+    position: relative;
+    left: 8vw;
+    top: -45vh;
+    display: inline-block;
+}
+.south{
+    position: relative;
+    left: 65vw;
+    top: -45vh;
+    display: inline-block;
+}
