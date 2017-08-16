@@ -13,7 +13,7 @@ function updateRestroomStatuses(){
                 for(var iter=0; iter < washroomsArray.length; iter++){
                     var color = "black";
                     switch(washroomsArray[iter].status) {
-                        case "in service":
+                        case "under service":
                             color = "red";
                             break;
                         case "closed for cleaning":
