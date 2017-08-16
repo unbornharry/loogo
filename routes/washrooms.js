@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const request = require('sync-request');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -8,7 +9,9 @@ router.get('/', function(req, res) {
 
 router.get('/washrooms', function(req, res){
 	res.setHeader('Content-Type', 'application/json');
-	res.send(JSON.stringify({washrooms:[{id:"SecondNorthMen", status:"red"},{id:"SecondNorthWomen", status:"green"}, {id:"SecondSouthMen", status:"orange"},{id:"SecondSouthWomen", status:"green"}]}))
+    var statusUrl = "http://52.25.29.73:5002/washrooms";
+    statusResponse = request('GET', statusUrl);
+	res.send(statusResponse.body);
 });
 
 module.exports = router;

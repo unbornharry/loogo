@@ -35,3 +35,35 @@ h3{
     top: -45vh;
     display: inline-block;
 }
+
+.compass{
+    width: 100px;
+    height: 100px;
+    padding: 0 2em 0 0;
+    float: right;
+}
+
+.buildingselect{
+    width: 200px;
+    height: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align-last: center;
+}
+
+.bgorange{
+    background: orange;
+}
+
+.bgred{
+    background: red;
+}
+
+.bggreen{
+    background: green;
+}
+
+.bggrey{
+    background: grey;
+}
