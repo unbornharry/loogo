@@ -1,4 +1,4 @@
-var urlWashroom= window.location.href + "washrooms";
+var urlWashroom= "http://" + window.location.host + "/washrooms";
 
 setInterval(updateRestroomStatuses, 3000);
 
@@ -20,7 +20,7 @@ function updateRestroomStatuses(){
                             color = "yellow";
                             break;
                         case "active":
-                            color = "green";
+                            color = "greenyellow";
                             break;
                         default:
                             color = "green";
