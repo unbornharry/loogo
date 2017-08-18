@@ -1,0 +1,14 @@
+label, button, input, select{
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+input, select{
+    left: 250px;
+    position: absolute;
+}
+
+div{
+    margin: 20px 0 20px 0;
+}

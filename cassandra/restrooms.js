@@ -9,9 +9,9 @@ module.exports = {
         const query = "SELECT * FROM renopushnotification.archive WHERE messageid = '" + userRandomMessage.id + "' AND deviceguid = 'ORIGIN' ALLOW FILTERING";
     },
 
-    addRestroom: function(buildingid, buildingname, floornumber, gender, name, status){
-        const addrestroomquery = "INSERT INTO restrooms (id, buildingid, buildingname, floornumber, gender, name, status) VALUES (?,?,?,?,?)";
-        const addrestroomparams = [guid.uuid(), guid.uuid(), messageId, sendTime, acked, ttl]
+    addRestroom: function(buildingid, buildingname, floornumber, gender, name){
+        const addrestroomquery = "INSERT INTO restrooms (id, buildingid, buildingname, floornumber, gender, name) VALUES (?,?,?,?,?)";
+        const addrestroomparams = [guid.uuid(), buildingid, floornumber, gender, name]
     },
 
     removeRestroom: function(id){
