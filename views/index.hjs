@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <!--<meta http-equiv="refresh" content="5">-->
-  <head>
-    <link rel="stylesheet" href="stylesheets/style.css">
+<head>
     <title>{{title}}</title>
-    <img src="images/compass.png" class="compass">
-	<h4 style="text-align:center;font-size: 40px;">{{title}}</h4>
-  </head>
-  <body>
-    <label>Select a building</label>
-    <select class="buildingselect">
-        <option value="volvo">INV90</option>
-        <option value="saab">INV100</option>
-    </select>
-	<div>
-	<h3> INV 90 Second Floor </h3>
-		<div id="divplan">
-            <img src="images/Layouts/INV90/1.JPG" id="plan" alt="Building 90 Second Floor">
-            <div class="north">
-                <img src="images/Women.png" id="RushHour2Womens" class="restroom bggrey">
-                <img src="images/Men.png" id="RushHour2Mens" class="restroom bggrey">
-            </div>
-            <div class="south">
-                <img src="images/Men.png" id="FinalDestination2Mens" class="restroom bggrey">
-                <img src="images/Women.png" id="FinalDestination2Womens" class="restroom bggrey">
-            </div>
-		</div>
-	</div>
-  </body>
-	<script src="javascripts/jquery.min.js"></script>
-	<script src="javascripts/loogo.js"></script>
+    <!--<h4 style="text-align:center;font-size: 40px;">{{title}}</h4>-->
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+    <h1>Monitored Floors</h1>
+    <div id="monitoredfloors" class="monitored"></div>
+    <div id="rightpane">
+        <label>Select Building
+            <select id="buildinglist" class="select">
+                <option value="INV90">INVERNESS 90</option>
+                <option value="INV94">INVERNESS 94</option>
+            </select>
+        </label>
+        <div id="floors" class="floors">
+        </div>
+    </div>
+</body>
 </html>

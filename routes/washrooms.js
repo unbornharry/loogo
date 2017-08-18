@@ -14,4 +14,10 @@ router.get('/washrooms', function(req, res){
 	res.send(statusResponse.body);
 });
 
+router.get('/building/:building/floor/:floor', function(req, res){
+    var building = req.params.building;
+    var floor = req.params.floor;
+    res.render('floor', { title: 'Loogo', building: building, floor: floor });
+});
+
 module.exports = router;

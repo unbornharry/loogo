@@ -1,0 +1,26 @@
+div{
+    border-radius: 10px;
+}
+#monitoredfloors{
+    width: 65vw;
+    height: 80vh;
+    background-color: burlywood;
+    float: left;
+}
+
+#rightpane{
+    width: 30vw;
+    height: 80vh;
+    background-color: antiquewhite;
+    float: right;
+}
+
+label{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+select{
+    border-radius: 5px;
+    font-size: 25px;
+}
