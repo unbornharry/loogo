@@ -1,4 +1,4 @@
-const cassandra = require('cassandra-driver');
+const cassandra = require('mysql');
 const config = require('../config/config.json');
 const guid = require('../utils/guid');
 
