@@ -14,16 +14,16 @@ function updateRestroomStatuses(){
                     var color = "black";
                     switch(washroomsArray[iter].status) {
                         case "under service":
-                            color = "red";
+                            color = "black";
                             break;
                         case "closed for cleaning":
-                            color = "yellow";
+                            color = "red";
                             break;
                         case "active":
                             color = "greenyellow";
                             break;
                         default:
-                            color = "green";
+                            color = "greenyellow";
                     }
                     $('#' + washroomsArray[iter].name).css('background-color', color);
                 }
