@@ -1,4 +1,3 @@
-const cassandra = require('mysql');
 const config = require('../config/config.json');
 const guid = require('../utils/guid');
 
