@@ -8,6 +8,7 @@ let lessMiddleware = require('less-middleware');
 
 let washrooms = require('./routes/washrooms');
 let building = require('./routes/building');
+let floor = require('./routes/floor');
 
 let app = express();
 
@@ -27,6 +28,7 @@ app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 
 app.use('/', washrooms);
 app.use('/', building);
+app.use('/', floor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

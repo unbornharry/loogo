@@ -5,7 +5,7 @@ let mysqlbuilding = require('../mysql/building');
 //POST Building
 building.post('/building', function(req, res){
     mysqlbuilding.createBuilding(req.body.buildingname, req.body.address1, req.body.address2, req.body.city, req.body.state, req.body.zip, function(passed, response){
-        if(passed) res.send(JSON.stringify({buildingId: response}));
+        if(passed) res.send({buildingId: response.insertId});
         else res.status(400).send(JSON.stringify({error: response}));
     });
 });
@@ -22,8 +22,9 @@ building.get('/building/:buildingId', function(req, res){
 //PUT Building
 building.put('/building/:buildingId', function(req, res){
     let buildingId = parseInt(req.params.buildingId);
-    mysqlbuilding.updateBuilding(buildingId, req.body.buildingname, req.body.address1, req.body.address2, req.body.city, req.body.state, req.body.zip, function(response){
-        res.send(response);
+    mysqlbuilding.updateBuilding(buildingId, req.body.buildingname, req.body.address1, req.body.address2, req.body.city, req.body.state, req.body.zip, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
     });
 });
 
