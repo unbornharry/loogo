@@ -19,6 +19,21 @@ module.exports = {
                 return callback(true, results);
         });
     },
+    getBuildingByQuerystring: function (query, callback) {
+        pool.query("SELECT * " +
+            "FROM building WHERE " +
+            "buildingname like '%" + query + "%' OR " +
+            "address1 like '%" + query + "%' OR " +
+            "address2 like '%" + query + "%' OR " +
+            "city like '%" + query + "%' OR " +
+            "state like '%" + query + "%' OR " +
+            "zip like '%" + query + "%'", function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
     updateBuilding: function (buildingid, buildingname, address1, address2, city, state, zip, callback) {
         pool.query("UPDATE BUILDING SET buildingname = ?, address1 = ?, address2 = ?, city = ?, state = ?, zip = ? " +
             "WHERE buildingid = ?", [buildingname, address1, address2, city, state, zip, buildingid], function (err, results){

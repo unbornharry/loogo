@@ -19,6 +19,15 @@ building.get('/building/:buildingId', function(req, res){
     });
 });
 
+//Get Buildings
+building.get('/building', function(req, res){
+    let querystring = req.query.querystring;
+    mysqlbuilding.getBuildingByQuerystring(querystring, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(JSON.stringify({error: response}));
+    });
+});
+
 //PUT Building
 building.put('/building/:buildingId', function(req, res){
     let buildingId = parseInt(req.params.buildingId);

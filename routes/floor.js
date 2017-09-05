@@ -18,7 +18,14 @@ floor.get('/floor/:floorId', function(req, res){
         else res.status(400).send(JSON.stringify({error: response}));
     });
 });
-
+//Get floors
+floor.get('/floor', function(req, res){
+    let buildingId = req.query.buildingid;
+    mysqlfloor.getFloorsForBuilding(buildingId, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(JSON.stringify({error: response}));
+    });
+});
 //PUT floor
 floor.put('/floor/:floorId', function(req, res){
     let floorId = parseInt(req.params.floorId);
