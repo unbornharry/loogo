@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `loogo`.`meetingroom` (
 	`occupantcount` INT NULL DEFAULT 0,
 	`occupancy` INT DEFAULT 0,
 	`location` VARCHAR(45) NULL,
+	`reserved` VARCHAR(10) NULL DEFAULT 'unreserved',
 	`createdtime` DATETIME DEFAULT CURRENT_TIMESTAMP,
 	`updatedtime` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (`buildingid`, `floorid`, `meetingroomname`),

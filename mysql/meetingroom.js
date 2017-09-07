@@ -41,6 +41,28 @@ module.exports = {
         });
     },
 
+    reserveMeetingroom: function(Meetingroomid, callback) {
+        pool.query("UPDATE Meetingroom SET " +
+            "reserved = ? " +
+            " WHERE meetingroomid = ?", ['reserved', Meetingroomid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
+    unreserveMeetingroom: function(Meetingroomid, callback) {
+        pool.query("UPDATE Meetingroom SET " +
+            "reserved = ? " +
+            " WHERE meetingroomid = ?", ['unreserved', Meetingroomid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
     deleteMeetingroom: function(Meetingroomid, callback){
         pool.query("DELETE FROM Meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
             if (err)

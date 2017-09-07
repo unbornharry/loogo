@@ -7,6 +7,7 @@ let bodyParser = require('body-parser');
 let lessMiddleware = require('less-middleware');
 
 let restroom = require('./routes/restroom');
+let meetingroom = require('./routes/meetingroom');
 let building = require('./routes/building');
 let floor = require('./routes/floor');
 let common = require('./routes/common');
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 
 app.use('/', restroom);
+app.use('/', meetingroom);
 app.use('/', building);
 app.use('/', floor);
 app.use('/', common);

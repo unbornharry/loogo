@@ -61,6 +61,32 @@ meetingroom.put('/meetingroom/:meetingroomId', function(req, res){
     });
 });
 
+//PUT Reserve meetingroom
+meetingroom.put('/meetingroom/:meetingroomId/reserve', function(req, res){
+    let meetingroomId = parseInt(req.params.meetingroomId);
+    mysqlmeetingroom.reserveMeetingroom(meetingroomId, function(passed, response){
+            if(passed) {
+                setTimeout(function() {
+                    mysqlmeetingroom.unreserveMeetingroom(meetingroomId, function (passed, response) {
+                        if (passed) console.log("Successfully auto unreserved meetingroomid : " + meetingroomId + " " + response);
+                        else console.log("ERROR: Auto unreserve failed for meetingroomid : " + meetingroomId + " " + response);
+                    })
+                }, 15000);
+                res.send(response);
+            }
+            else res.status(400).send(response);
+        });
+});
+
+//PUT Unreserve meetingroom
+meetingroom.put('/meetingroom/:meetingroomId/unreserve', function(req, res){
+    let meetingroomId = parseInt(req.params.meetingroomId);
+    mysqlmeetingroom.unreserveMeetingroom(meetingroomId, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
+    });
+});
+
 //PUT meetingroom status
 meetingroom.put('/meetingroom', function(req, res){
     let deviceid = req.body.deviceid;
