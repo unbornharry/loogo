@@ -2,7 +2,7 @@ let pool = require('./connections');
 
 module.exports = {
     createBuilding: function (buildingname, address1, address2, city, state, zip, callback) {
-        pool.query("INSERT INTO BUILDING (buildingid, buildingname, address1, address2, city, state, zip, createdtime, updatedtime) " +
+        pool.query("INSERT INTO building (buildingid, buildingname, address1, address2, city, state, zip, createdtime, updatedtime) " +
             "VALUES (null, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)", [buildingname, address1, address2, city, state, zip], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
@@ -35,7 +35,7 @@ module.exports = {
         });
     },
     updateBuilding: function (buildingid, buildingname, address1, address2, city, state, zip, callback) {
-        pool.query("UPDATE BUILDING SET buildingname = ?, address1 = ?, address2 = ?, city = ?, state = ?, zip = ? " +
+        pool.query("UPDATE building SET buildingname = ?, address1 = ?, address2 = ?, city = ?, state = ?, zip = ? " +
             "WHERE buildingid = ?", [buildingname, address1, address2, city, state, zip, buildingid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);

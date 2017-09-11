@@ -2,7 +2,7 @@ let pool = require('./connections');
 
 module.exports = {
     createMeetingroom: function(buildingid, floorid, Meetingroomname, Meetingroomdisplayname, deviceid, occupantcount, occupancy, location, callback){
-        pool.query("INSERT INTO Meetingroom (Meetingroomid, buildingid, floorid, Meetingroomname, Meetingroomdisplayname, deviceid, occupantcount, occupancy, location, createdtime, updatedtime) " +
+        pool.query("INSERT INTO meetingroom (Meetingroomid, buildingid, floorid, Meetingroomname, Meetingroomdisplayname, deviceid, occupantcount, occupancy, location, createdtime, updatedtime) " +
             "VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)",
             [buildingid, floorid, Meetingroomname, Meetingroomdisplayname, deviceid, occupantcount, occupancy, location], function (err, results){
             if (err)
@@ -13,7 +13,7 @@ module.exports = {
     },
 
     updateMeetingroom: function(Meetingroomid, buildingid, floorid, Meetingroomname, Meetingroomdisplayname, deviceid, occupantcount, occupancy, location, callback){
-        pool.query("UPDATE Meetingroom SET " +
+        pool.query("UPDATE meetingroom SET " +
             "buildingid = ?, " +
             "floorid = ?, " +
             "Meetingroomname = ?, " +
@@ -31,7 +31,7 @@ module.exports = {
     },
 
     updateMeetingroomOccupantcount: function(deviceid, occupantcount, callback){
-        pool.query("UPDATE Meetingroom SET " +
+        pool.query("UPDATE meetingroom SET " +
             "occupantcount = ? " +
             " WHERE deviceid = ?", [occupantcount, deviceid], function (err, results){
             if (err)
@@ -42,7 +42,7 @@ module.exports = {
     },
 
     reserveMeetingroom: function(Meetingroomid, callback) {
-        pool.query("UPDATE Meetingroom SET " +
+        pool.query("UPDATE meetingroom SET " +
             "reserved = ? " +
             " WHERE meetingroomid = ?", ['reserved', Meetingroomid], function (err, results){
             if (err)
@@ -53,7 +53,7 @@ module.exports = {
     },
 
     unreserveMeetingroom: function(Meetingroomid, callback) {
-        pool.query("UPDATE Meetingroom SET " +
+        pool.query("UPDATE meetingroom SET " +
             "reserved = ? " +
             " WHERE meetingroomid = ?", ['unreserved', Meetingroomid], function (err, results){
             if (err)
@@ -64,7 +64,7 @@ module.exports = {
     },
 
     deleteMeetingroom: function(Meetingroomid, callback){
-        pool.query("DELETE FROM Meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
+        pool.query("DELETE FROM meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -73,7 +73,7 @@ module.exports = {
     },
 
     getMeetingroomByMeetingroomid: function(Meetingroomid, callback){
-        pool.query("SELECT * FROM Meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
+        pool.query("SELECT * FROM meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -82,7 +82,7 @@ module.exports = {
     },
 
     getMeetingroomsByFloorid: function(floorid, callback){
-        pool.query("SELECT * FROM Meetingroom WHERE floorid = ?", [floorid], function (err, results){
+        pool.query("SELECT * FROM meetingroom WHERE floorid = ?", [floorid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -91,7 +91,7 @@ module.exports = {
     },
 
     getMeetingroomsByBuildingid: function(buildingid, callback){
-        pool.query("SELECT * FROM Meetingroom WHERE buildingid = ?", [buildingid], function (err, results){
+        pool.query("SELECT * FROM meetingroom WHERE buildingid = ?", [buildingid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else

@@ -2,7 +2,7 @@ let pool = require('./connections');
 
 module.exports = {
     createRestroom: function(buildingid, floorid, restroomname, restroomdisplayname, gender, numberofstalls, numberofurinals, deviceserialnumber, status, location, callback){
-        pool.query("INSERT INTO RESTROOM (restroomid, buildingid, floorid, restroomname, restroomdisplayname, gender, numberofstalls, numberofurinals, deviceserialnumber, status, location, createdtime, updatedtime) " +
+        pool.query("INSERT INTO restroom (restroomid, buildingid, floorid, restroomname, restroomdisplayname, gender, numberofstalls, numberofurinals, deviceserialnumber, status, location, createdtime, updatedtime) " +
             "VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)",
             [buildingid, floorid, restroomname, restroomdisplayname, gender, numberofstalls, numberofurinals, deviceserialnumber, status, location], function (err, results){
             if (err)
@@ -13,7 +13,7 @@ module.exports = {
     },
 
     updateRestroom: function(restroomid, buildingid, floorid, restroomname, restroomdisplayname, gender, numberofstalls, numberofurinals, deviceserialnumber, status, location, callback){
-        pool.query("UPDATE RESTROOM SET " +
+        pool.query("UPDATE restroom SET " +
             "buildingid = ?, " +
             "floorid = ?, " +
             "restroomname = ?, " +
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     updateRestroomStatus: function(restroomName, status, callback){
-        pool.query("UPDATE RESTROOM SET " +
+        pool.query("UPDATE restroom SET " +
             "status = ? " +
             " WHERE restroomname = ?", [status, restroomName], function (err, results){
             if (err)
@@ -43,7 +43,7 @@ module.exports = {
     },
 
     deleteRestroom: function(restroomid, callback){
-        pool.query("DELETE FROM RESTROOM WHERE restroomid = ?", [restroomid], function (err, results){
+        pool.query("DELETE FROM restroom WHERE restroomid = ?", [restroomid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -52,7 +52,7 @@ module.exports = {
     },
 
     getRestroomByRestroomid: function(restroomid, callback){
-        pool.query("SELECT * FROM RESTROOM WHERE restroomid = ?", [restroomid], function (err, results){
+        pool.query("SELECT * FROM restroom WHERE restroomid = ?", [restroomid], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -61,7 +61,7 @@ module.exports = {
     },
 
     getRestroomsByFloorid: function(floorid, gender, callback){
-        pool.query("SELECT * FROM RESTROOM WHERE floorid = ? AND gender like ?", [floorid, gender], function (err, results){
+        pool.query("SELECT * FROM restroom WHERE floorid = ? AND gender like ?", [floorid, gender], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else
@@ -69,7 +69,7 @@ module.exports = {
         });
     },
     getRestroomsByBuildingid: function(buildingid, gender, callback){
-        pool.query("SELECT * FROM RESTROOM WHERE buildingid = ? AND gender like ?", [buildingid, gender], function (err, results){
+        pool.query("SELECT * FROM restroom WHERE buildingid = ? AND gender like ?", [buildingid, gender], function (err, results){
             if (err)
                 return callback(false, err.sqlMessage);
             else

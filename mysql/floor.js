@@ -2,7 +2,7 @@ let pool = require('./connections');
 
 module.exports = {
     createFloor: function(buildingid, floornumber, floorname, callback){
-        pool.query("INSERT INTO FLOOR (floorid, buildingid, floornumber, floorname, createdtime, updatedtime) " +
+        pool.query("INSERT INTO floor (floorid, buildingid, floornumber, floorname, createdtime, updatedtime) " +
             "VALUES (null, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)", [buildingid, floornumber, floorname], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
@@ -11,7 +11,7 @@ module.exports = {
         });
     },
     getFloor: function(floorid, callback){
-        pool.query("SELECT * FROM FLOOR " +
+        pool.query("SELECT * FROM floor " +
             "WHERE floorid = ?", [floorid], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
@@ -20,7 +20,7 @@ module.exports = {
         });
     },
     getFloorsForBuilding: function(buildingid, callback){
-        pool.query("SELECT * FROM FLOOR " +
+        pool.query("SELECT * FROM floor " +
             "WHERE buildingid = ?", [buildingid], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
@@ -29,7 +29,7 @@ module.exports = {
         });
     },
     updateFloor: function(floorid, buildingid, floornumber, floorname, callback){
-        pool.query("UPDATE FLOOR SET buildingid = ?, floornumber = ?, floorname = ? " +
+        pool.query("UPDATE floor SET buildingid = ?, floornumber = ?, floorname = ? " +
             "WHERE floorid = ?", [buildingid, floornumber, floorname, floorid], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
@@ -38,7 +38,7 @@ module.exports = {
         });
     },
     deleteFloor: function(floorid, callback){
-        pool.query("DELETE FROM FLOOR " +
+        pool.query("DELETE FROM floor " +
             "WHERE floorid = ?", [floorid], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
