@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Restroom</title>
+    <link rel="stylesheet" href="/stylesheets/addrestroom.css">
+</head>
+<body>
+    <div>
+        <label>Building ID
+            <input type="text" id="buildingid">
+        </label>
+    </div>
+    <div>
+        <label>Building Name
+            <input type="text" id="buildingname">
+        </label>
+    </div>
+    <div>
+        <label>Floor Number
+            <input type="text" id="floornum">
+        </label>
+    </div>
+    <div>
+        <label>Restroom Name
+            <input type="text" id="restroomname">
+        </label>
+    </div>
+    <div>
+        <label>Gender
+            <select id="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="T">Trans Gender</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <button>Add Restroom</button>
+    </div>
+</body>
+</html>

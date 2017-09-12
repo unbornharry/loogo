@@ -1,0 +1,9 @@
+{
+  "mysql": {
+    "connectionLimit" : 10,
+    "host"            : "localhost",
+    "user"           : "loogo",
+    "password"        : "loogo",
+    "database"        : "loogo"
+  }
+}

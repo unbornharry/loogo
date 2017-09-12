@@ -1,15 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var lessMiddleware = require('less-middleware');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let lessMiddleware = require('less-middleware');
 
-var washrooms = require('./routes/washrooms');
-var users = require('./routes/users');
+let restroom = require('./routes/restroom');
+let meetingroom = require('./routes/meetingroom');
+let building = require('./routes/building');
+let floor = require('./routes/floor');
+let common = require('./routes/common');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,12 +28,15 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 
-app.use('/', washrooms);
-app.use('/users', users);
+app.use('/', restroom);
+app.use('/', meetingroom);
+app.use('/', building);
+app.use('/', floor);
+app.use('/', common);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

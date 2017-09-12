@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <!--<meta http-equiv="refresh" content="5">-->
+  <head>
+    <link rel="stylesheet" href="/stylesheets/floor.css">
+    <title>{{title}}</title>
+    <img src="/images/compass.png" class="compass">
+	<h4 style="text-align:center;font-size: 40px;">{{title}}</h4>
+  </head>
+  <body>
+	<div>
+	<h3> INV 90 Second Floor </h3>
+		<div id="divplan">
+            <img src="/images/Layouts/{{building}}/{{floor}}.JPG" id="plan" alt="Building 90 Second Floor">
+            <div class="north">
+                <img src="/images/Women.png" id="RushHour2Womens" class="restroom bggrey">
+                <img src="/images/Men.png" id="RushHour2Mens" class="restroom bggrey">
+            </div>
+            <div class="south">
+                <img src="/images/Men.png" id="FinalDestination2Mens" class="restroom bggrey">
+                <img src="/images/Women.png" id="FinalDestination2Womens" class="restroom bggrey">
+            </div>
+		</div>
+	</div>
+  </body>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/loogo.js"></script>
+</html>
