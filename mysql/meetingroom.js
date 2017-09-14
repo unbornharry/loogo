@@ -41,6 +41,28 @@ module.exports = {
         });
     },
 
+    incrementMeetingroomOccupantCount: function(deviceid, callback){
+        pool.query("UPDATE meetingroom SET " +
+            "occupantcount = occupantcount + 1 " +
+            " WHERE deviceid = ?", [deviceid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
+    decrementMeetingroomOccupantCount: function(deviceid, callback){
+        pool.query("UPDATE meetingroom SET " +
+            "occupantcount = occupantcount - 1 " +
+            " WHERE deviceid = ? AND occupantcount > 0", [deviceid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
     reserveMeetingroom: function(Meetingroomid, callback) {
         pool.query("UPDATE meetingroom SET " +
             "reserved = ? " +

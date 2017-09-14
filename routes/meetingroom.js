@@ -61,6 +61,24 @@ meetingroom.put('/meetingroom/:meetingroomId', function(req, res){
     });
 });
 
+//PUT meetingroom increment count
+meetingroom.put('/meetingroom/:deviceId/increment', function(req, res){
+    let deviceid = parseInt(req.params.deviceId);
+    mysqlmeetingroom.incrementMeetingroomOccupantCount(deviceid, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
+    });
+});
+
+//PUT meetingroom decrement count
+meetingroom.put('/meetingroom/:deviceId/decrement', function(req, res){
+    let deviceid = parseInt(req.params.deviceId);
+    mysqlmeetingroom.decrementMeetingroomOccupantCount(deviceid, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
+    });
+});
+
 //PUT Reserve meetingroom
 meetingroom.put('/meetingroom/:meetingroomId/reserve', function(req, res){
     let meetingroomId = parseInt(req.params.meetingroomId);
