@@ -89,7 +89,7 @@ meetingroom.put('/meetingroom/:meetingroomId/reserve', function(req, res){
                         if (passed) console.log("Successfully auto unreserved meetingroomid : " + meetingroomId + " " + response);
                         else console.log("ERROR: Auto unreserve failed for meetingroomid : " + meetingroomId + " " + response);
                     })
-                }, 15000);
+                }, 150000);
                 res.send(response);
             }
             else res.status(400).send(response);
