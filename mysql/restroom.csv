@@ -1,7 +1,0 @@
-"restroomid";"buildingid";"floorid";"restroomname";"restroomdisplayname";"gender";"numberofstalls";"numberofurinals";"deviceserialnumber";"status";"location";"createdtime";"updatedtime"
-5;2;6;"RushHour1Mens";"Rush Hour 1 Men's";"Male";3;2;"";"Active";"";"2017-09-06 11:52:06";"2017-09-06 11:52:06"
-6;2;6;"RushHour1Womens";"Rush Hour 1 Women's";"Female";6;0;"";"Active";"";"2017-09-06 11:52:34";"2017-09-06 11:52:34"
-2;2;7;"RushHour2Mens";"Rush Hour 2 Men's";"Male";2;1;"";"Closed for cleaning";"";"2017-09-03 17:06:58";"2017-09-07 15:10:38"
-1;2;7;"RushHour2Womens";"Rush Hour 2 Women's";"Female";4;0;"";"Active";"";"2017-09-03 17:06:44";"2017-09-06 11:50:49"
-3;1;8;"SerendipityMens";"Serendipity Men's";"Male";2;1;"";"Closed for cleaning";"";"2017-09-05 13:36:11";"2017-09-06 11:50:49"
-4;1;8;"SerendipityWomens";"Serendipity Women's";"Female";5;0;"";"Closed for cleaning";"";"2017-09-05 13:36:52";"2017-09-06 11:50:49"
