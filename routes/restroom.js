@@ -71,7 +71,16 @@ restroom.put('/restroom', function(req, res){
     let restroomName = req.body.restroomname;
     let status = req.body.status;
     mysqlrestroom.updateRestroomStatus(restroomName, status, function(passed, response){
-        if(passed) res.send(response);
+        if(passed && status === 'closed for cleaning') {
+            setTimeout(function() {
+                mysqlrestroom.updateRestroomStatus(restroomName, "active", function (passed, response) {
+                    if (passed) console.log("Successfully set the restroom back to active restroomName : " + restroomName);
+                    else console.log("ERROR: Auto activate restroom failed restroomName : " + restroomName + " " + response);
+                })
+            }, 1800000);
+            res.send(response);
+        }
+        else if(passed) res.send(response);
         else res.status(400).send(response);
     });
 });
