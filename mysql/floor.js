@@ -21,7 +21,7 @@ module.exports = {
     },
     getFloorsForBuilding: function(buildingid, callback){
         pool.query("SELECT * FROM floor " +
-            "WHERE buildingid = ?", [buildingid], function (err, results) {
+            "WHERE buildingid = ? ORDER BY floornumber desc", [buildingid], function (err, results) {
             if (err)
                 return callback(false, err.sqlMessage);
             else
