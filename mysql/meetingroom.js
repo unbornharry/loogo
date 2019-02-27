@@ -85,6 +85,28 @@ module.exports = {
         });
     },
 
+    occupyMeetingroom: function(Meetingroomid, callback) {
+        pool.query("UPDATE meetingroom SET " +
+            "occupied = ? " +
+            " WHERE meetingroomid = ?", [1, Meetingroomid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
+    unoccupyMeetingroom: function(Meetingroomid, callback) {
+        pool.query("UPDATE meetingroom SET " +
+            "occupied = ? " +
+            " WHERE meetingroomid = ?", [0, Meetingroomid], function (err, results){
+            if (err)
+                return callback(false, err.sqlMessage);
+            else
+                return callback(true, results);
+        });
+    },
+
     deleteMeetingroom: function(Meetingroomid, callback){
         pool.query("DELETE FROM meetingroom WHERE Meetingroomid = ?", [Meetingroomid], function (err, results){
             if (err)

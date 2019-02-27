@@ -105,6 +105,24 @@ meetingroom.put('/meetingroom/:meetingroomId/unreserve', function(req, res){
     });
 });
 
+//PUT Occupy meetingroom
+meetingroom.put('/meetingroom/:meetingroomId/occupy', function(req, res){
+    let meetingroomId = parseInt(req.params.meetingroomId);
+    mysqlmeetingroom.occupyMeetingroom(meetingroomId, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
+    });
+});
+
+//PUT Unoccupy meetingroom
+meetingroom.put('/meetingroom/:meetingroomId/unoccupy', function(req, res){
+    let meetingroomId = parseInt(req.params.meetingroomId);
+    mysqlmeetingroom.unoccupyMeetingroom(meetingroomId, function(passed, response){
+        if(passed) res.send(response);
+        else res.status(400).send(response);
+    });
+});
+
 //PUT meetingroom status
 meetingroom.put('/meetingroom', function(req, res){
     let deviceid = req.body.deviceid;

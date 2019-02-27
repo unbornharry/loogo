@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `loogo`.`meetingroom` (
 	`meetingroomname` VARCHAR(45) NOT NULL,
 	`meetingroomdisplayname` VARCHAR(45) NOT NULL,
 	`deviceid` VARCHAR(45) NULL,
+	`occupied` BOOLEAN DEFAULT 0,
 	`occupantcount` INT NULL DEFAULT 0,
 	`occupancy` INT DEFAULT 0,
 	`location` VARCHAR(45) NULL,
